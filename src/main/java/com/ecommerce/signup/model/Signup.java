@@ -3,7 +3,7 @@ package com.ecommerce.signup.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collation = "signup")
+@Document(collection = "Signup")
 public class Signup {
     private String firstname;
     private String lastname;

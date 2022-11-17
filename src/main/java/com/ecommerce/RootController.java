@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class RootController {
     @GetMapping
     public String rootController(){
-        return "Ecommerce Application is up and running on v1.0";
+        return "Ecommerce Application is up and running on v1.1";
     }
 }
