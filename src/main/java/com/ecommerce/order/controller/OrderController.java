@@ -7,6 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,7 +21,12 @@ public class OrderController {
     private orderService orderService;
 
     @PostMapping("/api/order")
-    public ResponseEntity<?> saveOrder(@RequestBody Order order){
+    public ResponseEntity<?> saveOrder(@RequestBody Order order) {
+        Date date = Calendar.getInstance().getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+        String currentTime = sdf.format(date);
+        String orderId = currentTime.replaceAll(":", "").replaceAll("-", "").replaceAll(" ","");
+        order.setOrderid(orderId);
         Order save = this.orderService.save(order);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(save);
     }
