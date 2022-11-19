@@ -27,6 +27,7 @@ public class OrderController {
         String currentTime = sdf.format(date);
         String orderId = currentTime.replaceAll(":", "").replaceAll("-", "").replaceAll(" ","");
         order.setOrderid(orderId);
+        order.setDate(date);
         Order save = this.orderService.save(order);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(save);
     }

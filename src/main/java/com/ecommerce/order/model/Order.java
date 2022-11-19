@@ -17,7 +17,7 @@ public class Order {
     private int total;
     private String email;
     private Address address;
-    @JsonFormat(pattern = "dd-mm-yyyy")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private Date date;
 
     public Order() {
