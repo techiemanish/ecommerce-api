@@ -2,6 +2,7 @@ package com.ecommerce.product.model;
 
 import com.ecommerce.review.model.Review;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -23,11 +24,14 @@ public class Product {
     private List<Review> reviews;
     @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private Date date;
+    private String imageId;
+    private Binary image;
+    private String photoData;
 
     public Product() {
     }
 
-    public Product(String productId, String productName, String description, int stock, int price, List<String> pinCode, String category, String sellerName, String sellerEmail, List<Review> reviews, Date date) {
+    public Product(String productId, String productName, String description, int stock, int price, List<String> pinCode, String category, String sellerName, String sellerEmail, List<Review> reviews, Date date, String imageId, Binary image, String photoData) {
         this.productId = productId;
         this.productName = productName;
         this.description = description;
@@ -39,6 +43,9 @@ public class Product {
         this.sellerEmail = sellerEmail;
         this.reviews = reviews;
         this.date = date;
+        this.imageId = imageId;
+        this.image = image;
+        this.photoData = photoData;
     }
 
     public String getProductId() {
@@ -129,6 +136,30 @@ public class Product {
         this.date = date;
     }
 
+    public String getImageId() {
+        return imageId;
+    }
+
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
+    }
+
+    public Binary getImage() {
+        return image;
+    }
+
+    public void setImage(Binary image) {
+        this.image = image;
+    }
+
+    public String getPhotoData() {
+        return photoData;
+    }
+
+    public void setPhotoData(String photoData) {
+        this.photoData = photoData;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -143,6 +174,9 @@ public class Product {
                 ", sellerEmail='" + sellerEmail + '\'' +
                 ", reviews=" + reviews +
                 ", date=" + date +
+                ", imageId='" + imageId + '\'' +
+                ", image=" + image +
+                ", photoData='" + photoData + '\'' +
                 '}';
     }
 }
