@@ -1,5 +1,6 @@
 package com.ecommerce.order.controller;
 
+import com.ecommerce.address.model.Address;
 import com.ecommerce.order.model.Order;
 import com.ecommerce.order.service.orderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,8 @@ public class OrderController {
         String currentTime = sdf.format(date);
         String orderId = currentTime.replaceAll(":", "").replaceAll("-", "").replaceAll(" ","");
         order.setOrderid(orderId);
+        Address address = order.getAddress();
+        address.setAddressId(orderId);
         order.setDate(date);
         Order save = this.orderService.save(order);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(save);

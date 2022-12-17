@@ -69,4 +69,10 @@ public class ProductController {
         //Need to write logic, each product should have review and image
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
+
+    @GetMapping("/api/products/email/{sellerEmail}")
+    public ResponseEntity<List<Product>> productBySellerEmail(@PathVariable String sellerEmail){
+        List<Product> result = this.productService.findBysellerEmail(sellerEmail);
+        return ResponseEntity.status(HttpStatus.OK).body(result);
+    }
 }

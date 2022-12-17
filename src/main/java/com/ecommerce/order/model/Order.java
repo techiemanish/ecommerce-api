@@ -1,17 +1,17 @@
 package com.ecommerce.order.model;
 
+import com.ecommerce.address.model.Address;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.annotation.processing.Generated;
 import java.util.Date;
 
 @Document(collection = "Order")
 public class Order {
     @Id
     private String orderid;
-    private int productid;
+    private long productid;
     private int price;
     private int quantity;
     private int total;
@@ -23,7 +23,7 @@ public class Order {
     public Order() {
     }
 
-    public Order(String orderid, int productid, int price, int quantity, int total, String email, Address address, Date date) {
+    public Order(String orderid, long productid, int price, int quantity, int total, String email, Address address, Date date) {
         this.orderid = orderid;
         this.productid = productid;
         this.price = price;
@@ -50,11 +50,11 @@ public class Order {
         this.orderid = orderid;
     }
 
-    public int getProductid() {
+    public long getProductid() {
         return productid;
     }
 
-    public void setProductid(int productid) {
+    public void setProductid(long productid) {
         this.productid = productid;
     }
 

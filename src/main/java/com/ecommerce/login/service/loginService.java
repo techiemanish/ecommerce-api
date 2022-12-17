@@ -1,4 +1,4 @@
 package com.ecommerce.login.service;
 
-public class loginService {
+public interface loginService {
 }

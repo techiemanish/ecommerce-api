@@ -1,6 +1,13 @@
-package com.ecommerce.order.model;
+package com.ecommerce.address.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection = "Address")
 public class Address {
+    @Id
+    private String addressId;
+    private String email;
     private String street;
     private String city;
     private String landmark;
@@ -11,13 +18,31 @@ public class Address {
     public Address() {
     }
 
-    public Address(String street, String city, String landmark, String state, String country, String pincode) {
+    public Address(String addressId, String email, String street, String city, String landmark, String state, String country, String pincode) {
+        this.addressId = addressId;
+        this.email = email;
         this.street = street;
         this.city = city;
         this.landmark = landmark;
         this.state = state;
         this.country = country;
         this.pincode = pincode;
+    }
+
+    public String getAddressId() {
+        return addressId;
+    }
+
+    public void setAddressId(String addressId) {
+        this.addressId = addressId;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getLandmark() {
@@ -71,7 +96,9 @@ public class Address {
     @Override
     public String toString() {
         return "Address{" +
-                "street='" + street + '\'' +
+                "addressId='" + addressId + '\'' +
+                ", email='" + email + '\'' +
+                ", street='" + street + '\'' +
                 ", city='" + city + '\'' +
                 ", landmark='" + landmark + '\'' +
                 ", state='" + state + '\'' +
