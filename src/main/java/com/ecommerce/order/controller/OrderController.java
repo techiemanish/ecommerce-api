@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = {"http://localhost:3000", "https://trueclix.netlify.app/"})
 public class OrderController {
     @Autowired
     private orderService orderService;

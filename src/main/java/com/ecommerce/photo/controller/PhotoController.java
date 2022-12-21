@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.util.Base64;
 
 @RestController
+@CrossOrigin(origins = {"http://localhost:3000", "https://trueclix.netlify.app/"})
 public class PhotoController {
     @Autowired
     private PhotoService photoServ;

@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = {"http://localhost:3000", "https://trueclix.netlify.app/"})
 public class AddressController {
 
     @Autowired
