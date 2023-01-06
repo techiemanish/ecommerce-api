@@ -2,14 +2,16 @@ package com.ecommerce.security.model;
 
 public class JwtRespone {
     private String token;
-    private String duration;
+    private String type;
+    private String expires_in;
 
     public JwtRespone() {
     }
 
-    public JwtRespone(String token, String duration) {
+    public JwtRespone(String token, String type, String expires_in) {
         this.token = token;
-        this.duration = duration;
+        this.type = type;
+        this.expires_in = expires_in;
     }
 
     public String getToken() {
@@ -20,11 +22,19 @@ public class JwtRespone {
         this.token = token;
     }
 
-    public String getDuration() {
-        return duration;
+    public String getType() {
+        return type;
     }
 
-    public void setDuration(String duration) {
-        this.duration = duration;
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getExpires_in() {
+        return expires_in;
+    }
+
+    public void setExpires_in(String expires_in) {
+        this.expires_in = expires_in;
     }
 }
