@@ -46,7 +46,8 @@ public class JwtController {
         String token = this.jwtUtil.generateToken(userDetails);
         JwtRespone jwtRespone = new JwtRespone();
         jwtRespone.setToken(token);
-        jwtRespone.setDuration("3600");
+        jwtRespone.setType("Bearer");
+        jwtRespone.setExpires_in("3600");
         return ResponseEntity.status(HttpStatus.OK).body(jwtRespone);
     }
 }
