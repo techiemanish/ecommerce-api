@@ -64,7 +64,7 @@ public class loginController {
                 Error error = new Error();
                 error.setStatus("Unauthorized");
                 error.setMessage("Wrong credentials. Please enter correct details.");
-                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(error);
+                return ResponseEntity.status(HttpStatus.OK).body(error);
             }
         }
         catch (Exception e){
