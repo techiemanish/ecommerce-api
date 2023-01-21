@@ -4,6 +4,7 @@ import com.ecommerce.address.model.Address;
 import com.ecommerce.order.model.Order;
 import com.ecommerce.product.model.Product;
 import com.ecommerce.review.model.Review;
+import com.ecommerce.security.model.JwtRespone;
 
 import java.util.List;
 
@@ -17,11 +18,12 @@ public class LoginResponse {
     private List<Order> orders;
     private List<Review> reviews;
     private List<Product> products;
+    private JwtRespone jwtToken;
 
     public LoginResponse() {
     }
 
-    public LoginResponse(String firstname, String lastname, String email, String phone, boolean isSeller, List<Address> address, List<Order> orders, List<Review> reviews, List<Product> products) {
+    public LoginResponse(String firstname, String lastname, String email, String phone, boolean isSeller, List<Address> address, List<Order> orders, List<Review> reviews, List<Product> products, JwtRespone jwtToken) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -31,6 +33,7 @@ public class LoginResponse {
         this.orders = orders;
         this.reviews = reviews;
         this.products = products;
+        this.jwtToken = jwtToken;
     }
 
     public String getFirstname() {
@@ -105,6 +108,14 @@ public class LoginResponse {
         this.products = products;
     }
 
+    public JwtRespone getJwtToken() {
+        return jwtToken;
+    }
+
+    public void setJwtToken(JwtRespone jwtToken) {
+        this.jwtToken = jwtToken;
+    }
+
     @Override
     public String toString() {
         return "LoginResponse{" +
@@ -117,6 +128,7 @@ public class LoginResponse {
                 ", orders=" + orders +
                 ", reviews=" + reviews +
                 ", products=" + products +
+                ", jwtToken=" + jwtToken +
                 '}';
     }
 }
