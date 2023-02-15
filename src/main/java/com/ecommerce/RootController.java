@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000", "https://trueclix.netlify.app/"})
+@CrossOrigin(origins = {"https://mycscode.com/","https://ecommerce.mycscode.com/","http://localhost:3000", "https://trueclix.netlify.app/"})
 public class RootController {
     @GetMapping("/")
     public ResponseEntity<?> rootController(){
-        return ResponseEntity.status(HttpStatus.OK).body("Ecommerce Application is up and running on v2.0");
+        return ResponseEntity.status(HttpStatus.OK).body("Ecommerce Application is up and running on v2.1");
     }
 }

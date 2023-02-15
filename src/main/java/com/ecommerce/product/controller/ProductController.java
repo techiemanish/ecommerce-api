@@ -18,7 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000", "https://trueclix.netlify.app/"})
+@CrossOrigin(origins = {"https://mycscode.com/","https://ecommerce.mycscode.com/","http://localhost:3000", "https://trueclix.netlify.app/"})
 public class ProductController {
 
     @Autowired
