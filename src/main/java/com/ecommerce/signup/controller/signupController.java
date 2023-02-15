@@ -10,8 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ecommerce.signup.service.signupService;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000", "https://trueclix.netlify.app/"})
-public class signupController {
+@CrossOrigin(origins = {"https://mycscode.com/","https://ecommerce.mycscode.com/","http://localhost:3000", "https://trueclix.netlify.app/"})public class signupController {
     @Autowired
     private signupService signupService;
 

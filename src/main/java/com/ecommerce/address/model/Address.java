@@ -7,6 +7,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Address {
     @Id
     private String addressId;
+
+    private String firstName;
+    private String lastName;
+    private String mobile;
     private String email;
     private String street;
     private String city;
@@ -18,8 +22,11 @@ public class Address {
     public Address() {
     }
 
-    public Address(String addressId, String email, String street, String city, String landmark, String state, String country, String pincode) {
+    public Address(String addressId, String firstName, String lastName, String mobile, String email, String street, String city, String landmark, String state, String country, String pincode) {
         this.addressId = addressId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.mobile = mobile;
         this.email = email;
         this.street = street;
         this.city = city;
@@ -35,6 +42,30 @@ public class Address {
 
     public void setAddressId(String addressId) {
         this.addressId = addressId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(String mobile) {
+        this.mobile = mobile;
     }
 
     public String getEmail() {
@@ -97,6 +128,9 @@ public class Address {
     public String toString() {
         return "Address{" +
                 "addressId='" + addressId + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", mobile='" + mobile + '\'' +
                 ", email='" + email + '\'' +
                 ", street='" + street + '\'' +
                 ", city='" + city + '\'' +
