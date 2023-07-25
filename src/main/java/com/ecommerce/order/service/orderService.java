@@ -9,4 +9,5 @@ import java.util.List;
 @Service
 public interface orderService extends MongoRepository<Order, String> {
     public List<Order> findByEmail(String email);
+    public void deleteByEmail(String email);
 }

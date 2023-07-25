@@ -10,4 +10,5 @@ import java.util.List;
 public interface ReviewService extends MongoRepository<Review, String> {
     public List<Review> findByuserEmail(String userEmail);
     public List<Review> findByproductId(String productId);
+    public void deleteByuserEmail(String userEmail);
 }

@@ -1,6 +1,8 @@
 package com.ecommerce.login.controller;
 
 import com.ecommerce.address.service.AddressService;
+import com.ecommerce.login.model.DeleteRequest;
+import com.ecommerce.login.model.DeleteResponse;
 import com.ecommerce.login.model.LoginRequest;
 import com.ecommerce.login.model.LoginResponse;
 import com.ecommerce.order.service.orderService;
@@ -16,10 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin(origins = {"https://mycscode.com/","https://ecommerce.mycscode.com/","http://localhost:3000", "https://trueclix.netlify.app/"})
@@ -78,6 +77,12 @@ public class loginController {
                 loginResponse.setJwtToken(jwtRespone);
             }
             else {
+                if(result == null){
+                    Error error = new Error();
+                    error.setStatus("No Account exist with this mail");
+                    error.setMessage("Please register yourself!");
+                    return ResponseEntity.status(HttpStatus.OK).body(error);
+                }
                 Error error = new Error();
                 error.setStatus("Unauthorized");
                 error.setMessage("Wrong credentials. Please enter correct details.");
@@ -92,5 +97,29 @@ public class loginController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
         }
         return ResponseEntity.status(HttpStatus.OK).body(loginResponse);
+    }
+
+    @DeleteMapping("api/login")
+    public ResponseEntity<?> deleteMyAccount(@RequestBody DeleteRequest deleteRequest){
+        String email = deleteRequest.getEmail();
+        Signup result = this.signupService.findByEmail(email);
+        if(result != null){
+            if(result.getIsSeller()){
+                this.productService.deleteById(email);
+            }
+            this.signupService.deleteById(email);
+            this.addressService.deleteByEmail(email);
+            this.orderService.deleteByEmail(email);
+            this.reviewService.deleteByuserEmail(email);
+            DeleteResponse deleteResponse = new DeleteResponse();
+            deleteResponse.setStatus("Success");
+            deleteResponse.setMessage("Account Successfully Deleted!");
+            return ResponseEntity.status(HttpStatus.OK).body(deleteResponse);
+        }else{
+            DeleteResponse deleteResponse = new DeleteResponse();
+            deleteResponse.setStatus("Not Found");
+            deleteResponse.setMessage("Account does not exist!");
+            return ResponseEntity.status(HttpStatus.OK).body(deleteResponse);
+        }
     }
 }

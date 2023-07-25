@@ -9,4 +9,5 @@ import java.util.List;
 @Service
 public interface AddressService extends MongoRepository<Address, String> {
     public List<Address> findByemail(String email);
+    public void deleteByEmail(String email);
 }
