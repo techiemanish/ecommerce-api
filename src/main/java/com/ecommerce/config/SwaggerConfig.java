@@ -25,6 +25,6 @@ public class SwaggerConfig {
     }
 
     private ApiInfo getInfo() {
-        return new ApiInfo("E-commerce Backend API","This project is developed by techiemanish","2.6","Terms of Service",new Contact("techiemanish","https://github.com/techiemanish",""),null,null, Collections.emptyList());
+        return new ApiInfo("E-commerce Backend API","This project is developed by techiemanish","2.7","Terms of Service",new Contact("techiemanish","https://github.com/techiemanish",""),null,null, Collections.emptyList());
     }
 }

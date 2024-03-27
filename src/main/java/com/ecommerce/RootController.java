@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class RootController {
     @GetMapping("/")
     public ResponseEntity<?> rootController(){
-        return ResponseEntity.status(HttpStatus.OK).body("Ecommerce Application is up and running on v2.6");
+        return ResponseEntity.status(HttpStatus.OK).body("Ecommerce Application is up and running on v2.7");
     }
 }
