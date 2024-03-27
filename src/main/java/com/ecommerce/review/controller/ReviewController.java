@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"https://mycscode.com/","https://ecommerce.mycscode.com/","http://localhost:3000", "https://trueclix.netlify.app/"})
+@CrossOrigin(origins = {"https://mycscode.com/", "https://ecommerce.mycscode.com/", "http://localhost:3000", "https://trueclix.netlify.app/"}, methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class ReviewController {
 
     @Autowired
